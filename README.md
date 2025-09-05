@@ -28,7 +28,6 @@ A collection of assignments, projects, and experiments I’m building while lear
 | Backend Fundamentals    |  Not Started | Setup Express & basic APIs          |
 | Full-Stack Project      |  Not Started | Integrate frontend with backend     |
 
-*(Feel free to update as you progress)*
 
 ---
 
