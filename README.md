@@ -32,5 +32,5 @@ A collection of assignments, projects, and experiments I’m building while lear
 ---
 
 
-   git clone https://github.com/Samcode-16/web-dev-practice.git
+   git clone https://github.com/Samcode-16/Web-Development.git
 
