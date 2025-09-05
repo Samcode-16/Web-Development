@@ -3,7 +3,7 @@ A collection of assignments, projects, and experiments I’m building while lear
 
 # Web Development Practice — [Your Name or Username]
 
-> *"Practicing and growing every day. Building full-stack web dev skills with hands-on projects."*
+> *"Practicing and growing in web development. Building full-stack web dev skills with hands-on projects."*
 
 ---
 
