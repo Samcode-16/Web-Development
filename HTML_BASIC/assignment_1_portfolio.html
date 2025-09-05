@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Form</title>
+</head>
+<body>
+    <form id="form">
+    <h2>Survey Form</h2>
+
+    <label for = "name" id="label-name"><b>Name</b></label><br>
+    <input type = "name" id="name" placeholder="Enter your full name"><br><br>
+
+    <label for = "email" id="label-email"><b>Email</b></label><br>
+    <input type = "email" id="email" placeholder="Enter your email address"><br><br>
+
+    <label for = "age" id="label-age"><b>Age</b></label><br>
+    <input type = "text" id="age" placeholder="Enter you age here"><br><br>
+
+    <label for = "preferences"  id="label-prefernces"><b>Select your preferences for websites for learning programming</b></label><br>
+    <select name="preferernces" id="preferences">
+        <option value="geeksforgeeks">GeeksforGeeks</option>
+        <option value="w3school">W3School</option>
+        <option value="tutorialspoint">Tutorials Point</option>
+        <option value="codechef">CodeChef</option>
+    </select><br><br>
+
+    <label><b>Choose your favourite programming language</b></label><br>
+        <label for="lang-1">
+            <input type = "radio" id="lang-1" name="fav-language">C
+        </label><br>
+        <label for="lang-2">
+            <input type = "radio" id="lang-2" name="fav-language">C++
+        </label><br>
+        <label for="lang-3">
+            <input type = "radio" id="lang-3" name="fav-language">Python
+        </label><br>
+        <label for="lang-4">
+            <input type = "radio" id="lang-4" name="fav-language">Java
+        </label><br>
+        <label for="lang-5">
+            <input type = "radio" id="lang-5" name="fav-language">Javascript
+        </label><br><br>
+
+    <label><b>Choose frameworks knwon in web development</b></label>
+        <label for="framework-1">
+            <input type="checkbox" name="framework">React
+        </label><br>
+        <label for="framework-2">
+            <input type="checkbox" name="framework">Django
+        </label><br>
+        <label for="framework-3">
+            <input type="checkbox" name="framework">Angular
+        </label><br>
+        <label for="framework-4">
+            <input type="checkbox" name="framework">Spring
+        </label><br><br>
+
+    <label for="comment"><b>Comment</b></label><br>
+        <textarea name="comment" id="comment" placeholder="Comemnt here"></textarea><br><br>
+
+    <button type="submit" value="submit">Submit</button>
+    </form>
+</body>
+</html>
