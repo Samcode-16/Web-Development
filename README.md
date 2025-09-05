@@ -1,7 +1,7 @@
 # Web-Development
 A collection of assignments, projects, and experiments I’m building while learning web development.
 
-# Web Development Practice - By Samudyatha K Bhat
+# Web Development Practice
 
 > *"Practicing and growing in web development. Building full-stack web dev skills with hands-on projects."*
 
