@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1a237e, #0d47a0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        button {
+            color: white;
+            background-color: navy;
+            align-items: center;
+            border-radius: 7px;
+            padding: 4px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        form {
+            background-color: lightblue;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: X-offset  Y-offset  Blur-radius  Color;
+            width: 300px;
+        }
+
+        input {
+            padding: 8px;
+            border-radius: 12px;
+            border-color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <form action="/login" autocomplete = "off">
+    
+    <h1 style = "color: navy;">Login</h1>
+    <label for = "username">Username : </label><br><br>
+    <input type = "text" id = "username" name = "username" placeholder = "Enter Username" required><br><br>
+    
+
+    <label for = "password">Password : </label><br><br>
+    <input type = "password" id = "password" name = "password" placeholder = "Enter Password" required><br><br>
+    
+
+    <button>Login</button><br><br>
+    <p><a href = "https://www.w3schools.com/howto/howto_css_login_form.asp">Forget Password ?</a></p>
+    <p>Or</p>
+    <p><a href = "https://codehim.com/collections/login-page-in-html-with-css-code/">Sign In</a></p>
+
+    </from>
+</body>
+</html>
