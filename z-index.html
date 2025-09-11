@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Z-index</title>
+<style>
+    .firstbox {
+        background-color: green;
+        position: absolute;
+        height: 200px;
+        width: 200px;
+        text-align: center;
+        z-index: 1;
+    }
+    .secondbox {
+        background-color: brown;
+        position: absolute;
+        top: 80px;
+        left: 80px;
+        height: 200px;
+        width: 200px;
+        text-align: center;
+        z-index: 2;
+    }
+    .thirdbox {
+        background-color: yellow;
+        position: absolute; 
+        top: 40px;
+        left: 40px;
+        height: 200px;
+        width: 200px;
+        text-align: center;
+        z-index: 3;
+    }
+</style>
+</head>
+<body>
+    <div class="firstbox">Flashcard 1</div>
+    <div class="secondbox">Flashcard 2</div>
+    <div class="thirdbox">Flashcard 3</div>
+</body>
+</html>
