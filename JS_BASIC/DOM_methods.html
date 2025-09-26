@@ -6,15 +6,22 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>GeeksforGeeks</h2>
-    <!-- Finding the HTML Elements by their Id in DOM -->
-     <p id="intro"> A Computer Science portal for geeks. </p>
-     <p>This example illustrates the <b>getElementById</b> method.</p>
-     <p id="demo"></p>
+    <h1 id="demo">This is some text.</h1>
+    <button onclick="changeText()">Click Me</button>
+    <button id="btn">Button</button>
 
-     <script>
-        const element = document.getElementById("intro");
-        document.getElementById("demo").innerHTML = "GeeksforGeeks introduction is: " + element.innerHTML;
-     </script>
+    <script>
+        function changeText() {
+            let element = document.getElementById("demo");
+            element.textContent = "Text is changed using Javascript";
+        }
+        document.getElementById("btn").addEventListener("click", function() {
+            alert("Button clicked !");
+        });
+
+        let newPara = document.createElement("p");
+        newPara.textContent = "This is a new paragraph created using Javascript";
+        document.body.appendChild(newPara);
+    </script>
 </body>
 </html>

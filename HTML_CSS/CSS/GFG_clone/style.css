@@ -189,8 +189,9 @@ header {
 }
 .grid-content {
   display: grid;
+  place-items: center;
   grid-template-columns: auto auto;
-  margin: 50px 200px;
+  margin: 50px auto;
   gap: 25px;
   padding: 0 20px;
   justify-content: center;
