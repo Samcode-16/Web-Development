@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+</head>
+<style>
+     *{
+            margin: 25px;
+            box-sizing: border-box;
+        }
+        .grandparent{
+            height: 350px;
+            width: 350px;
+            border: 2px solid red;
+        }
+        .parent{
+            height: 250px;
+            width: 250px;
+            border: 2px solid blue;
+        }
+        .child{
+            height: 150px;
+            width: 150px;
+            border: 2px solid green;
+        }
+</style>
+<body>
+    <!-- <h1>Event Listener Demo</h1>
+    <p>Move your mouse around and press any key to see logs in the console.</p> -->
+
+    <div>
+        <button>Click Me</button>
+    </div>
+    <ul id="lists">
+        <li>ONE</li>
+        <li>TWO</li>
+    </ul>
+    <nav>
+        <a href="https://www.google.com">Google</a>
+    </nav>
+
+    <form id="example">
+        <input type="text" placeholder="Enter something" id="formInput"/>
+        <button id="button" type="submit">Submit</button>
+    </form>
+
+
+<!--To demonstrate Event Bubbling-->
+    <div class="grandparent" id="one">
+        Grandparent
+        <div class="parent" id="two">
+            Parent
+            <div class="child" id="three">
+                Child
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+    // Mouse Event
+        // document.addEventListener("mousemove", (e) => {
+        //     console.log(`Mouse moved to (${e.clientX}, ${e.clientY})`);
+        // });
+
+        // // Keyboard Event
+        // document.addEventListener("keydown", (e) => {
+        //     console.log(`Key pressed: ${e.key}`);
+        // });
+
+        //Event propagation
+            document.querySelector("div").addEventListener("click", () => {
+                console.log("Div clicked");
+            }, true); // Capturing phase
+
+            button.addEventListener("click", (e) => {
+                console.log("Button clicked");
+                e.stopPropagation(); // Stops propagation
+            });
+
+            let ul = document.querySelector("#lists");
+            ul.addEventListener("click", (e) => {
+                if (e.target.tagName === "LI") {
+                    e.target.style.backgroundColor = "yellow";
+                }
+            });
+
+            //STOPS THE LINK FROM NAVIGATING
+            document.querySelector("a").addEventListener("click", (e) => {
+                e.preventDefault();
+                console.log("Link click prevented");
+            });
+
+            //form validation
+            document.querySelector("#example").addEventListener("submit", (e) => {
+                let input = document.querySelector("#formInput");
+                if(!input.value) {
+                    e.preventDefault();
+                    alert("Input cannot be empty");
+                }
+            });
+            
+            //add dynamic content
+            document.querySelector("#button").addEventListener("click", ()  => {
+                let newDiv = document.createElement("div");
+                newDiv.textContent = "New Element Added";
+                newDiv.style.margin = "10px 0";
+                document.body.appendChild(newDiv);
+            });
+
+           //event bubbling demonstration
+           let grandparent = document.getElementById("one"); 
+           let parent = document.getElementById("two");
+           let child = document.getElementById("three");
+           grandparent.addEventListener('click', function (e) {
+                e.stopPropagation()
+                console.log("Grandparent clicked !");
+           })
+
+           parent.addEventListener('click', function (e) {
+                e.stopPropagation()
+                console.log("Parent clicked !");
+            })
+
+            child.addEventListener('click', function (e) {
+                    e.stopPropagation()
+                    console.log("Child clicked !");
+                })
+
+</script>
+</html>
