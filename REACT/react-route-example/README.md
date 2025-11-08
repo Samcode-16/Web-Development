@@ -1,16 +1,46 @@
-# React + Vite
+# React Router — What I implemented
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Purpose: notes about the routing features I implemented in this project to learn client-side navigation with React Router.
 
-Currently, two official plugins are available:
+What I implemented
+- App-level router using BrowserRouter to enable SPA navigation.
+- Route definitions with Routes and Route for:
+  - Home, About, Contact and other main pages.
+  - Nested routes (parent layout + child routes) to share UI (headers/sidebars).
+  - Dynamic routes using path params (e.g., /users/:id) and reading params with useParams.
+- Navigation elements:
+  - Links and NavLink for navigation with active link styles.
+  - Programmatic navigation using useNavigate (redirect after actions, form submit).
+- Route guards / protected routes:
+  - Simple auth check wrapper (RequireAuth) that redirects unauthenticated users to a login page.
+  - Storing auth state in context or Redux, then protecting routes based on that state.
+- Lazy loading & code-splitting:
+  - React.lazy + Suspense for route-based chunking to improve initial load.
+- 404 / Not Found route:
+  - Catch-all route (*) that renders a NotFound component when no route matches.
+- Query params & location:
+  - Reading query strings via useLocation and URLSearchParams for filtering/search pages.
+- Scroll/restoration & UX:
+  - Basic scroll-to-top on navigation or preserving scroll for specific pages (small helper).
+- Practical examples in the project:
+  - Demo components showing links, nested layouts, dynamic user detail page, protected dashboard.
+  - Simple login flow that demonstrates redirect after login.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+What I learned
+- Router basics: how BrowserRouter, Routes and Route work together.
+- Differences between Link and NavLink and when to use each.
+- Handling dynamic params and validating them in components.
+- How to implement protected routes and redirect flows.
+- Benefits of lazy-loading route components for performance.
+- How routing state (location, params, query) can be used to drive UI and data loading.
+- Common pitfalls: forgetting to wrap app with Provider/Router, relying on hard refresh for client routes.
 
-## React Compiler
+How to run (Windows)
+- cd <your folder>
+- npm install
+- npm start
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Next improvements I may implement
+- Add route transition animations.
+- Integrate React Router with data fetching (loader patterns or RTK Query).
+- Improve accessibility for route changes (focus management, ARIA-live announcements).

@@ -1,70 +1,48 @@
-# Getting Started with Create React App
+# React + Redux — What I learned
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Purpose: notes from learning state management with Redux in React projects and practical patterns applied.
 
-## Available Scripts
+What this project / folder demonstrates
+- Integrating Redux with React using react-redux (Provider, useSelector, useDispatch).
+- Typical Redux pieces: actions, reducers, store, middleware.
+- Usage patterns with modern Redux Toolkit (configureStore, createSlice, createAsyncThunk, RTK Query).
 
-In the project directory, you can run:
+Key concepts I learned
+- Single source of truth: app state lives in a central store.
+- Actions and reducers: actions describe "what happened", reducers produce the next state (pure functions).
+- Immutability: always return new state objects; use immutable helpers or Immer (built into Redux Toolkit).
+- Middleware for side effects: redux-thunk for simple async flows, redux-saga for more complex flows.
+- Async data flows: dispatch pending/fulfilled/rejected states; pattern with createAsyncThunk.
+- React-Redux bindings:
+  - Provider wraps the app to expose the store.
+  - useSelector to read slices of state, useDispatch to send actions.
+  - connect HOC vs hooks: hooks are preferred in modern code.
+- Selectors and performance:
+  - Keep selectors focused; use reselect for memoization to avoid unnecessary re-renders.
+  - Normalize nested data (by id) to simplify updates and selectors.
+- Folder structure and organization:
+  - Group by feature (ducks pattern) or by domain; keep actions/reducers/selectors together (slices).
+  - Keep reusable logic in middleware or thunks.
+- Testing:
+  - Reducers are easy to unit test (pure functions).
+  - Test async actions with mocked stores or use RTK's utilities.
+- Debugging tools:
+  - Redux DevTools for action/state inspection and time travel.
+  - Logging middleware for development.
 
-### `npm start`
+Practical takeaways / best practices
+- Prefer Redux Toolkit for less boilerplate and safer patterns (createSlice, Immer).
+- Avoid storing derived UI state in Redux; keep minimal global state.
+- Use memoized selectors and slice-level selectors for performance.
+- Keep side effects out of reducers; implement them in thunks/sagas or RTK Query.
+- Write small, focused slices and reuse selectors across components.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+How to run examples (Windows)
+- cd <your folder>
+- npm install
+- npm start
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Next steps I plan
+- Convert more examples to Redux Toolkit and RTK Query.
+- Add unit and integration tests for slices and async flows.
+- Explore advanced middleware patterns and performance tuning.

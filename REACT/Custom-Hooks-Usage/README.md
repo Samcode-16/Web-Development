@@ -1,16 +1,47 @@
-# React + Vite
+# Custom Hooks — What I learned
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Purpose: a small demo project to practice creating and using custom React hooks by extracting reusable stateful logic.
 
-Currently, two official plugins are available:
+What this project contains
+- src/hooks/UseCounter.jsx — a custom hook that manages a counter (count, increment, decrement, reset).
+- Simple demo components that import and use UseCounter to show real usage patterns.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+What I learned (key points)
+- Reason to create custom hooks
+  - Extract and reuse stateful logic across components.
+  - Keep components focused on UI while hooks handle behavior.
 
-## React Compiler
+- Hook implementation fundamentals
+  - useState inside hooks to manage local state.
+  - Returning a clear API (state + action functions) so components remain readable.
+  - Choosing object vs array return shapes for clarity and destructuring.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Practical behavior & pitfalls
+  - Initial values: how the initial argument is used and the implications for reset.
+  - Stale closures: be aware when using state values inside functions; prefer functional updates when needed (setCount(c => c + 1)).
+  - Avoid side effects directly in hooks unless documented; prefer useEffect for effects.
 
-## Expanding the ESLint configuration
+- Composition & reuse
+  - Hooks can call other hooks and be composed to build more complex behaviors.
+  - Keep hooks small and focused so they can be recombined.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Testing and improvement ideas
+  - How to unit-test hooks (React Testing Library + @testing-library/react-hooks or equivalent).
+  - Adding TypeScript types for safer hook APIs.
+  - Improving API ergonomics (optional callback support, step size, bounds).
+
+Practical takeaways
+- Custom hooks improve code reuse and readability.
+- Prefer functional state updates to avoid stale-value bugs in event handlers.
+- Document hook contracts (expected args, return shape, side effects).
+
+How to run (Windows)
+- Open PowerShell or Command Prompt:
+  - cd <your folder>
+  - npm install
+  - npm start
+
+Next steps I plan to try
+- Add unit tests for UseCounter.
+- Convert hooks to TypeScript and add types.
+- Create more example hooks (useToggle, useLocalStorage, useFetch) and show composition.
